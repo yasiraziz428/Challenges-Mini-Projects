@@ -39,3 +39,21 @@ function Stopwatch() {
     },
   });
 }
+
+const startButton = document.getElementById("start-button");
+const endButton = document.getElementById("end-button");
+const duration = document.getElementById("duration");
+
+const watch = new Stopwatch();
+
+startButton.addEventListener("click", function (e) {
+  watch.start();
+  setInterval(() => {
+    duration.innerText = watch.duration;
+  }, 1000);
+});
+
+endButton.addEventListener("click", function (e) {
+  watch.stop();
+  // duration.innerText = Math.floor(watch.duration);
+});
